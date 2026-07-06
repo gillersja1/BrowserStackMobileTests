@@ -1,0 +1,22 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+
+## Test results
+TestResults/
+*.trx
+
+## BrowserStack SDK logs
+logs/
+browserstack-sdk-log*.log
+
+## IDE
+.vs/
+.vscode/
+.idea/
+
+## OS
+.DS_Store
+Thumbs.db

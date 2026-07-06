@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>BrowserStackMobileTests</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+    <PackageReference Include="Microsoft.Playwright.NUnit" Version="1.47.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.6.0" />
+    <!-- BrowserStack's NUnit/Playwright test adapter. Intercepts test execution
+         and routes browser sessions to BrowserStack's real device cloud based
+         on the platforms defined in browserstack.yml. No test code changes
+         are required to switch between local and BrowserStack execution. -->
+    <PackageReference Include="BrowserStack.TestAdapter" Version="0.27.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="browserstack.yml" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>
