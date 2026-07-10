@@ -16,7 +16,7 @@
          and routes browser sessions to BrowserStack's real device cloud based
          on the platforms defined in browserstack.yml. No test code changes
          are required to switch between local and BrowserStack execution. -->
-    <PackageReference Include="BrowserStack.TestAdapter" Version="0.27.0" />
+    <PackageReference Include="BrowserStack.TestAdapter" Version="0.39.1" />
   </ItemGroup>
 
   <ItemGroup>

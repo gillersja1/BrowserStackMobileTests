@@ -14,18 +14,17 @@ framework: playwright
 # Real mobile devices to run this suite against. Add/remove entries to
 # change coverage. Full device list:
 # https://www.browserstack.com/list-of-browsers-and-platforms/playwright
+# Real mobile devices to run this suite against. 
+#
+# NOTE: Android devices are NOT currently supported in Playwright C# binding.
+# See: https://github.com/microsoft/playwright-dotnet/issues/1178
+# Android support exists in Playwright TypeScript/Node.js but hasn't been
+# ported to the .NET binding (as of July 2026). For Android testing, use
+# Playwright Node.js or wait for official .NET Android support.
 platforms:
-  - deviceName: Samsung Galaxy S23 Ultra
-    browserName: chrome
-    osVersion: "13.0"
-
   - deviceName: iPhone 15 Pro Max
     browserName: safari
     osVersion: "17"
-
-  - deviceName: Google Pixel 8
-    browserName: chrome
-    osVersion: "14.0"
 
 buildName: mobile-showcase-build
 projectName: BrowserStackMobileTests
