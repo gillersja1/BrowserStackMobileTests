@@ -9,14 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
-    <PackageReference Include="Microsoft.Playwright.NUnit" Version="1.47.0" />
-    <PackageReference Include="NUnit3TestAdapter" Version="4.6.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.7.0" />
+    <PackageReference Include="Microsoft.Playwright.NUnit" Version="1.61.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="6.2.0" />
     <!-- BrowserStack's NUnit/Playwright test adapter. Intercepts test execution
          and routes browser sessions to BrowserStack's real device cloud based
          on the platforms defined in browserstack.yml. No test code changes
          are required to switch between local and BrowserStack execution. -->
-    <PackageReference Include="BrowserStack.TestAdapter" Version="0.27.0" />
+    <PackageReference Include="BrowserStack.TestAdapter" Version="0.39.1" />
   </ItemGroup>
 
   <ItemGroup>
