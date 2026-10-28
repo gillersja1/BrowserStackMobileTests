@@ -1,20 +1,14 @@
 # BrowserStack SDK configuration.
 #
-# IMPORTANT: Do not commit real credentials here. Either:
-#   1. Run `dotnet browserstack-sdk setup --userName "..." --accessKey "..."`
-#      locally to populate this file (then keep it out of git), or
-#   2. Leave the placeholders below and export BROWSERSTACK_USERNAME /
-#      BROWSERSTACK_ACCESS_KEY as environment variables in CI, where the
-#      workflow overwrites this file at runtime (see .github/workflows).
-userName: YOUR_USERNAME
-accessKey: YOUR_ACCESS_KEY
+# Credentials are intentionally NOT stored here. The SDK reads them from the
+# BROWSERSTACK_USERNAME and BROWSERSTACK_ACCESS_KEY environment variables
+# (set locally in your shell, and from repo secrets in CI).
 
 framework: playwright
 
 # Real mobile devices to run this suite against. Add/remove entries to
 # change coverage. Full device list:
 # https://www.browserstack.com/list-of-browsers-and-platforms/playwright
-# Real mobile devices to run this suite against. 
 #
 # NOTE: Android devices are NOT currently supported in Playwright C# binding.
 # See: https://github.com/microsoft/playwright-dotnet/issues/1178

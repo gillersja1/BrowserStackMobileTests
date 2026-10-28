@@ -35,20 +35,21 @@ BrowserStackMobileTests/
    dotnet build
    ```
 
-2. Populate `browserstack.yml` with your credentials — either edit the file
-   directly, or run the SDK's setup command, which writes them for you:
+2. Set your credentials as environment variables. The SDK reads them
+   directly, so they never need to be written into `browserstack.yml`:
 
    ```bash
-   dotnet browserstack-sdk setup --userName "YOUR_USERNAME" --accessKey "YOUR_ACCESS_KEY"
+   export BROWSERSTACK_USERNAME="your-username"          # macOS/Linux
+   export BROWSERSTACK_ACCESS_KEY="your-access-key"
+
+   $env:BROWSERSTACK_USERNAME = "your-username"          # Windows PowerShell
+   $env:BROWSERSTACK_ACCESS_KEY = "your-access-key"
    ```
 
-   > Don't commit real credentials. If you use the setup command, keep
-   > `browserstack.yml` out of git afterward, or revert the credential lines
-   > before committing (see the CI note below for how this repo handles it).
-
 3. Adjust the `platforms` list in `browserstack.yml` to whichever real
-   devices you want to test against. The included example covers a
-   Samsung Galaxy (Chrome), an iPhone (Safari), and a Google Pixel (Chrome).
+   devices you want to test against. The included example runs on an
+   iPhone 15 Pro Max (Safari); Android devices aren't yet supported by the
+   Playwright .NET binding (see the note in `browserstack.yml`).
    Browse the full device catalog here:
    [supported browsers & OS for Playwright](https://www.browserstack.com/list-of-browsers-and-platforms/playwright).
 
@@ -79,9 +80,11 @@ demo store built for test automation practice — and checks:
 `.github/workflows/browserstack-mobile.yml` runs the suite on every push/PR
 to `main`. It keeps credentials out of the repo by:
 
-1. Checking out the placeholder `browserstack.yml` (with `YOUR_USERNAME` / `YOUR_ACCESS_KEY`)
-2. Using `sed` to substitute in real values from GitHub secrets (`BROWSERSTACK_USERNAME`, `BROWSERSTACK_ACCESS_KEY`) at runtime
-3. Running `dotnet test` as normal
+1. Running a [gitleaks](https://github.com/gitleaks/gitleaks) scan over the
+   full git history, failing the build if any credential has been committed
+2. Passing GitHub secrets (`BROWSERSTACK_USERNAME`, `BROWSERSTACK_ACCESS_KEY`)
+   to `dotnet test` as environment variables, which the SDK reads natively
+3. Uploading the `.trx` results as a build artifact
 
 To use this, add `BROWSERSTACK_USERNAME` and `BROWSERSTACK_ACCESS_KEY` as
 repository secrets (Settings → Secrets and variables → Actions).

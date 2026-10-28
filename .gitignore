@@ -10,6 +10,7 @@ TestResults/
 
 ## BrowserStack SDK logs
 logs/
+log/
 browserstack-sdk-log*.log
 
 ## IDE
